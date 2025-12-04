@@ -35,14 +35,6 @@ describe(`Function 'validateEmail':`, () => {
     expect(validateEmail('test@gmail.com.')).toBeFalsy();
   });
 
-  it(`should be 'false' if 'personal_info' without '-' and '_' chars`, () => {
-    expect(validateEmail('test@gmail.com.')).toBeFalsy();
-  });
-
-  it(`should be 'false' if in 'personal_info' the first is '.'`, () => {
-    expect(validateEmail('.test838@gmail.com')).toBeFalsy();
-  });
-
   it(`should return false if 'personal_info' starts with dot`, () => {
     expect(validateEmail('.test838@gmail.com')).toBeFalsy();
   });
@@ -57,10 +49,6 @@ describe(`Function 'validateEmail':`, () => {
 
   it(`should return false if 'personal_info' has consecutive dots`, () => {
     expect(validateEmail('test..838@gmail.com')).toBeFalsy();
-  });
-
-  it(`should return false if 'personal_info' not include '@'`, () => {
-    expect(validateEmail('test838gmail.com')).toBeFalsy();
   });
 
   it(`should return false if 'personal_info' not include '@'`, () => {
@@ -87,7 +75,11 @@ describe(`Function 'validateEmail':`, () => {
     expect(validateEmail('test838@gma1il.com')).toBeTruthy();
   });
 
-  it(`should return true if 'domain' with digits`, () => {
-    expect(validateEmail('test838@gmail.c-om')).toBeTruthy();
+  it(`should return true if 'personal_info' with '-'`, () => {
+    expect(validateEmail('test-838@gmail.com')).toBeTruthy();
+  });
+
+  it(`should return true if 'personal_info' with '_'`, () => {
+    expect(validateEmail('tes_t838@gmail.com')).toBeTruthy();
   });
 });
