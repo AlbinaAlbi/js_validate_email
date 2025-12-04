@@ -24,7 +24,7 @@ describe(`Function 'validateEmail':`, () => {
   });
 
   it(`should return 'false' for the invalid 'email'`, () => {
-    expect(validateEmail('testgmail.com.')).toBeFalsy();
+    expect(validateEmail('testgmail.com')).toBeFalsy();
   });
 
   it(`should be'false' for 'personal_info' with non-Latin characters`, () => {
